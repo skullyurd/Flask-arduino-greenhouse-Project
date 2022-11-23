@@ -1,0 +1,17 @@
+body {
+    background-color: beige;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+.set_information1{
+  border-style: inset;
+}
+
+.bordered_sides{
+  border-left-style: solid;
+}
+
+.underline_border{
+  border-bottom-style: solid;
+}

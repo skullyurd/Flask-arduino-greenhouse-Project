@@ -1,0 +1,102 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<h1>LATEST SENSOR DATA</h1>
+    {% if Rtime != None %}
+    <p><b>latest recorded time:</b> {{ Rtime }}</p>
+    {% else %}
+    <p>time cannot be found!</p>
+    {% endif %}
+
+    <p><b>Sensor ID:</b> 02</p>
+
+    {% if Rhumidity != None %}
+    <p><b>Humidity:</b> {{ Rhumidity }} %</p>
+    {% else %}
+    <p>humidity cannot be found!</p>
+    {% endif %}
+    
+    {% if Rtemperature != None %}
+    <p><b>Temperature:</b> {{ Rtemperature }} °C</p>
+    {% else %}
+    <p>temperature cannot be found!</p>
+    {% endif %}
+
+    {% if Rklux != None %}
+    <p><b>Brightness:</b> {{ Rklux }} W/m²</p>
+    {% else %}
+    <p>brightness cannot be found!</p>
+    {% endif %}
+
+    <h2>Statistic sensor ID 02 </h2>
+
+<table style="width:100%", class = "set_information1">
+  <tr>
+    <th class = "underline_border">Field</th>
+    <th class = "bordered_sides underline_border">Humidity [%]</th>
+    <th class = "bordered_sides underline_border">Temperature [°C]</th>
+    <th class = "bordered_sides underline_border">Brightness [W/m²]</th>
+  </tr>
+  <tr>
+    <td>Average</td>
+    {% if Raverage_humidity != None %}
+    <td class = "bordered_sides">{{ Raverage_humidity }}</td>
+    {% else %}
+    <td class = "bordered_sides">Data not found!</td>
+    {% endif %}
+
+    {% if average_Rtemperature != None %}
+    <td class = "bordered_sides">{{ Raverage_temperature }}</td>
+    {% else %}
+    <td class = "bordered_sides">Data not found!</td>
+    {% endif %}
+
+    {% if Raverage_klux != None %}
+    <td class = "bordered_sides">{{ Raverage_klux }}</td>
+    {% else %}
+    <td class = "bordered_sides">Data not found!</td>
+    {% endif %}
+  </tr>
+  <tr>
+    <td>Maximum</td>
+    {% if Rmax_humidity != None %}
+    <td class = "bordered_sides">{{ Rmax_humidity }}</td>
+    {% else %}
+    <td class = "bordered_sides">Data not found!</td>
+    {% endif %}
+
+    {% if Rmax_temperature != None %}
+    <td class = "bordered_sides">{{ Rmax_temperature }}</td>
+    {% else %}
+    <td class = "bordered_sides">Data not found!</td>
+    {% endif %}
+
+    {% if Rmax_klux != None %}
+    <td class = "bordered_sides">{{ Rmax_klux }}</td>
+    {% else %}
+    <td class = "bordered_sides">Data not found!</td>
+    {% endif %}
+  </tr>
+  <tr>
+    <td>Minimum</td>
+    {% if Rmin_humidity != None %}
+    <td class = "bordered_sides">{{ Rmin_humidity }}</td>
+    {% else %}
+    <td class = "bordered_sides">Data not found!</td>
+    {% endif %}
+
+    {% if Rmin_temperature != None %}
+    <td class = "bordered_sides">{{ Rmin_temperature }}</td>
+    {% else %}
+    <td class = "bordered_sides">Data not found!</td>
+    {% endif %}
+
+    {% if Rmin_klux != None %}
+    <td class = "bordered_sides">{{ Rmin_klux }}</td>
+    {% else %}
+    <td class = "bordered_sides">Data not found!</td>
+    {% endif %}
+  </tr>
+</table>
+
+{% endblock %}

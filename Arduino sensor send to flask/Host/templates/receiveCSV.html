@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greenhouse dashboard </title>
+</head>
+
+<body>
+    <h1>The csv file printed out in html</h1>
+    <table style="width:100%", class = "set_information1">
+        <tr>
+            <th class = "underline_border">Sensor ID</th>
+            <th class = "bordered_sides underline_border">Time Stamp</th>
+            <th class = "bordered_sides underline_border">Humidity [%]</th>
+            <th class = "bordered_sides underline_border">Temperature [°C]</th>
+            <th class = "bordered_sides underline_border">Brightness [W/m²]</th>
+            {% for i in range(0, rawLines) %}
+            <tr>
+                <td>{{ sensor_id[i] }}</td>
+                <td class = "bordered_sides" >{{ time_stamp[i] }}</td>
+                <td class = "bordered_sides">{{ humidity[i] }}</td>
+                <td class = "bordered_sides">{{ temperature[i] }}</td>
+                <td class = "bordered_sides">{{ brightness[i] }}</td>
+            </tr>
+            {% endfor %}
+    </table>
+    
+</body>
+</html>
